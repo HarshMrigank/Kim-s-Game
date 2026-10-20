@@ -1,122 +1,215 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { useState } from "react";
+
+import GameHeader from "./components/GameHeader";
+import SetupScreen from "./components/SetupScreen";
+import WordGrid from "./components/WordGrid";
+import AnswerOptions from "./components/AnswerOptions";
+import ResultsScreen from "./components/ResultsScreen";
+import WelcomeModal from "./components/WelcomeModal";
+
+import "./App.css";
+
+const DEMO_WORDS = [
+  "Apple",
+  "Mountain",
+  "Guitar",
+  "River",
+  "Window",
+  "Camera",
+  "Garden",
+  "Rocket",
+];
+
+const DEMO_OPTIONS = [
+  "Apple",
+  "Mountain",
+  "Guitar",
+  "River",
+  "Window",
+  "Camera",
+];
+
+export default function App() {
+  const [screen, setScreen] = useState("setup");
+  const [showWelcome, setShowWelcome] = useState(true);
+
+  const [gameConfig, setGameConfig] = useState({
+    playerName: "",
+    level: null,
+    rounds: 10,
+  });
+
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
+
+  function startGame(config) {
+    setGameConfig(config);
+    setSelectedAnswers([]);
+    setShowWelcome(false);
+    setScreen("memorise");
+  }
+
+  function toggleAnswer(word) {
+    setSelectedAnswers((current) => {
+      if (current.includes(word)) {
+        return current.filter((item) => item !== word);
+      }
+
+      if (current.length >= gameConfig.level.missing) {
+        return current;
+      }
+
+      return [...current, word];
+    });
+  }
+
+  function submitAnswers() {
+    setScreen("results");
+  }
+
+  function replayGame() {
+    setSelectedAnswers([]);
+    setScreen("memorise");
+  }
+
+  function returnToSetup() {
+    setSelectedAnswers([]);
+    setScreen("setup");
+  }
+
+  function shareDemoScore() {
+    const message =
+      `I scored 0 points in Kim's Game at Level ` +
+      `${gameConfig.level?.level ?? 1}. ` +
+      `Can you beat my score?`;
+
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(
+        `${message} Play here: ${window.location.href}`
+      )
+        .then(() => window.alert("Score message copied."))
+        .catch(() => window.alert(message));
+    } else {
+      window.alert(message);
+    }
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app-shell">
+      <GameHeader
+        onInstructions={() => setShowWelcome(true)}
+      />
 
-      <div className="ticks"></div>
+      <main className="main-content">
+        {screen === "setup" && (
+          <SetupScreen onStart={startGame} />
+        )}
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        {screen === "memorise" && (
+          <section className="game-card">
+            <div className="game-heading">
+              <div>
+                <span className="eyebrow">
+                  ROUND 1 OF {gameConfig.rounds}
+                </span>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+                <h1>Memorise these words</h1>
+
+                <p className="muted">
+                  {gameConfig.playerName}, study the cards carefully.
+                </p>
+              </div>
+
+              <div className="timer-placeholder">
+                <strong>{gameConfig.level?.time ?? 8}s</strong>
+                <span>Time limit</span>
+              </div>
+            </div>
+
+            <WordGrid
+              words={DEMO_WORDS.slice(
+                0,
+                gameConfig.level?.words ?? 8
+              )}
+            />
+
+            <div className="demo-notice">
+              This is a preview. The countdown and word randomisation
+              will be implemented in the next modules.
+            </div>
+
+            <button
+              className="button button-primary"
+              onClick={() => setScreen("answer")}
+            >
+              Continue to answers →
+            </button>
+          </section>
+        )}
+
+        {screen === "answer" && (
+          <section className="game-card">
+            <div className="game-heading">
+              <div>
+                <span className="eyebrow">ROUND 1</span>
+                <h1>What disappeared?</h1>
+                <p className="muted">
+                  Select the words you think are missing.
+                </p>
+              </div>
+
+              <div className="timer-placeholder">
+                <strong>{gameConfig.level?.time ?? 8}s</strong>
+                <span>Time limit</span>
+              </div>
+            </div>
+
+            <WordGrid
+              words={DEMO_WORDS.slice(
+                gameConfig.level?.missing ?? 2
+              )}
+            />
+
+            <AnswerOptions
+              options={DEMO_OPTIONS}
+              selected={selectedAnswers}
+              maxSelections={gameConfig.level?.missing ?? 2}
+              onToggle={toggleAnswer}
+              onSubmit={submitAnswers}
+            />
+
+            <p className="demo-notice">
+              Demo mode: answer validation and scoring are not
+              connected yet.
+            </p>
+          </section>
+        )}
+
+        {screen === "results" && (
+          <ResultsScreen
+            playerName={gameConfig.playerName}
+            level={gameConfig.level?.level ?? 1}
+            score={0}
+            accuracy={0}
+            correctAnswers={0}
+            totalAnswers={gameConfig.level?.missing ?? 2}
+            onReplay={replayGame}
+            onSetup={returnToSetup}
+            onShare={shareDemoScore}
+          />
+        )}
+      </main>
+
+      <footer className="app-footer">
+        <span>Kim's Game</span>
+        <span>Observe. Remember. Improve.</span>
+      </footer>
+
+      <WelcomeModal
+        isOpen={showWelcome}
+        onClose={() => setShowWelcome(false)}
+        onStart={() => setShowWelcome(false)}
+      />
+    </div>
+  );
 }
-
-export default App
