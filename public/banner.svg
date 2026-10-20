@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Space+Grotesk:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap');
+      .title-text { font-family: 'Space Grotesk', -apple-system, sans-serif; font-weight: 800; font-size: 58px; fill: #252525; }
+      .tagline-text { font-family: 'Patrick Hand', cursive, sans-serif; font-size: 28px; fill: #0b69a3; }
+      .body-text { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; fill: #64675f; }
+      .badge-text { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 800; fill: #252525; }
+      .card-word { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 700; fill: #252525; }
+      .vanished-text { font-family: 'Patrick Hand', cursive, sans-serif; font-size: 14px; fill: #8c887e; }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="420" rx="20" fill="#FFF9EF" stroke="#ded8cb" stroke-width="2" />
+
+  <!-- Dotted pattern background -->
+  <g fill="#ded8cb" opacity="0.6">
+    <circle cx="50" cy="40" r="1.5" /><circle cx="100" cy="40" r="1.5" /><circle cx="150" cy="40" r="1.5" /><circle cx="200" cy="40" r="1.5" /><circle cx="250" cy="40" r="1.5" /><circle cx="300" cy="40" r="1.5" /><circle cx="350" cy="40" r="1.5" /><circle cx="400" cy="40" r="1.5" /><circle cx="450" cy="40" r="1.5" /><circle cx="500" cy="40" r="1.5" /><circle cx="550" cy="40" r="1.5" /><circle cx="600" cy="40" r="1.5" /><circle cx="650" cy="40" r="1.5" /><circle cx="700" cy="40" r="1.5" /><circle cx="750" cy="40" r="1.5" /><circle cx="800" cy="40" r="1.5" /><circle cx="850" cy="40" r="1.5" /><circle cx="900" cy="40" r="1.5" /><circle cx="950" cy="40" r="1.5" />
+    <circle cx="50" cy="90" r="1.5" /><circle cx="100" cy="90" r="1.5" /><circle cx="150" cy="90" r="1.5" /><circle cx="200" cy="90" r="1.5" /><circle cx="250" cy="90" r="1.5" /><circle cx="300" cy="90" r="1.5" /><circle cx="350" cy="90" r="1.5" /><circle cx="400" cy="90" r="1.5" /><circle cx="450" cy="90" r="1.5" /><circle cx="500" cy="90" r="1.5" /><circle cx="550" cy="90" r="1.5" /><circle cx="600" cy="90" r="1.5" /><circle cx="650" cy="90" r="1.5" /><circle cx="700" cy="90" r="1.5" /><circle cx="750" cy="90" r="1.5" /><circle cx="800" cy="90" r="1.5" /><circle cx="850" cy="90" r="1.5" /><circle cx="900" cy="90" r="1.5" /><circle cx="950" cy="90" r="1.5" />
+    <circle cx="50" cy="140" r="1.5" /><circle cx="100" cy="140" r="1.5" /><circle cx="150" cy="140" r="1.5" /><circle cx="200" cy="140" r="1.5" /><circle cx="250" cy="140" r="1.5" /><circle cx="300" cy="140" r="1.5" /><circle cx="350" cy="140" r="1.5" /><circle cx="400" cy="140" r="1.5" /><circle cx="450" cy="140" r="1.5" /><circle cx="500" cy="140" r="1.5" /><circle cx="550" cy="140" r="1.5" /><circle cx="600" cy="140" r="1.5" /><circle cx="650" cy="140" r="1.5" /><circle cx="700" cy="140" r="1.5" /><circle cx="750" cy="140" r="1.5" /><circle cx="800" cy="140" r="1.5" /><circle cx="850" cy="140" r="1.5" /><circle cx="900" cy="140" r="1.5" /><circle cx="950" cy="140" r="1.5" />
+    <circle cx="50" cy="190" r="1.5" /><circle cx="100" cy="190" r="1.5" /><circle cx="150" cy="190" r="1.5" /><circle cx="200" cy="190" r="1.5" /><circle cx="250" cy="190" r="1.5" /><circle cx="300" cy="190" r="1.5" /><circle cx="350" cy="190" r="1.5" /><circle cx="400" cy="190" r="1.5" /><circle cx="450" cy="190" r="1.5" /><circle cx="500" cy="190" r="1.5" /><circle cx="550" cy="190" r="1.5" /><circle cx="600" cy="190" r="1.5" /><circle cx="650" cy="190" r="1.5" /><circle cx="700" cy="190" r="1.5" /><circle cx="750" cy="190" r="1.5" /><circle cx="800" cy="190" r="1.5" /><circle cx="850" cy="190" r="1.5" /><circle cx="900" cy="190" r="1.5" /><circle cx="950" cy="190" r="1.5" />
+    <circle cx="50" cy="240" r="1.5" /><circle cx="100" cy="240" r="1.5" /><circle cx="150" cy="240" r="1.5" /><circle cx="200" cy="240" r="1.5" /><circle cx="250" cy="240" r="1.5" /><circle cx="300" cy="240" r="1.5" /><circle cx="350" cy="240" r="1.5" /><circle cx="400" cy="240" r="1.5" /><circle cx="450" cy="240" r="1.5" /><circle cx="500" cy="240" r="1.5" /><circle cx="550" cy="240" r="1.5" /><circle cx="600" cy="240" r="1.5" /><circle cx="650" cy="240" r="1.5" /><circle cx="700" cy="240" r="1.5" /><circle cx="750" cy="240" r="1.5" /><circle cx="800" cy="240" r="1.5" /><circle cx="850" cy="240" r="1.5" /><circle cx="900" cy="240" r="1.5" /><circle cx="950" cy="240" r="1.5" />
+    <circle cx="50" cy="290" r="1.5" /><circle cx="100" cy="290" r="1.5" /><circle cx="150" cy="290" r="1.5" /><circle cx="200" cy="290" r="1.5" /><circle cx="250" cy="290" r="1.5" /><circle cx="300" cy="290" r="1.5" /><circle cx="350" cy="290" r="1.5" /><circle cx="400" cy="290" r="1.5" /><circle cx="450" cy="290" r="1.5" /><circle cx="500" cy="290" r="1.5" /><circle cx="550" cy="290" r="1.5" /><circle cx="600" cy="290" r="1.5" /><circle cx="650" cy="290" r="1.5" /><circle cx="700" cy="290" r="1.5" /><circle cx="750" cy="290" r="1.5" /><circle cx="800" cy="290" r="1.5" /><circle cx="850" cy="290" r="1.5" /><circle cx="900" cy="290" r="1.5" /><circle cx="950" cy="290" r="1.5" />
+    <circle cx="50" cy="340" r="1.5" /><circle cx="100" cy="340" r="1.5" /><circle cx="150" cy="340" r="1.5" /><circle cx="200" cy="340" r="1.5" /><circle cx="250" cy="340" r="1.5" /><circle cx="300" cy="340" r="1.5" /><circle cx="350" cy="340" r="1.5" /><circle cx="400" cy="340" r="1.5" /><circle cx="450" cy="340" r="1.5" /><circle cx="500" cy="340" r="1.5" /><circle cx="550" cy="340" r="1.5" /><circle cx="600" cy="340" r="1.5" /><circle cx="650" cy="340" r="1.5" /><circle cx="700" cy="340" r="1.5" /><circle cx="750" cy="340" r="1.5" /><circle cx="800" cy="340" r="1.5" /><circle cx="850" cy="340" r="1.5" /><circle cx="900" cy="340" r="1.5" /><circle cx="950" cy="340" r="1.5" />
+    <circle cx="50" cy="390" r="1.5" /><circle cx="100" cy="390" r="1.5" /><circle cx="150" cy="390" r="1.5" /><circle cx="200" cy="390" r="1.5" /><circle cx="250" cy="390" r="1.5" /><circle cx="300" cy="390" r="1.5" /><circle cx="350" cy="390" r="1.5" /><circle cx="400" cy="390" r="1.5" /><circle cx="450" cy="390" r="1.5" /><circle cx="500" cy="390" r="1.5" /><circle cx="550" cy="390" r="1.5" /><circle cx="600" cy="390" r="1.5" /><circle cx="650" cy="390" r="1.5" /><circle cx="700" cy="390" r="1.5" /><circle cx="750" cy="390" r="1.5" /><circle cx="800" cy="390" r="1.5" /><circle cx="850" cy="390" r="1.5" /><circle cx="900" cy="390" r="1.5" /><circle cx="950" cy="390" r="1.5" />
+  </g>
+
+  <!-- Left Column: Branding & Intro -->
+  <g transform="translate(60, 60)">
+    <!-- Category Pill -->
+    <rect width="250" height="32" rx="16" fill="#FFFFFF" stroke="#252525" stroke-width="2" />
+    <circle cx="18" cy="16" r="5" fill="#FF8D80" />
+    <text x="32" y="21" class="badge-text" letter-spacing="1">OBSERVATION &amp; RECALL</text>
+
+    <!-- Main Title -->
+    <text x="0" y="90" class="title-text">Kim’s Game</text>
+    <polygon points="305,62 312,74 326,75 316,84 318,97 305,90 292,97 294,84 284,75 298,74" fill="#FFE28A" stroke="#252525" stroke-width="2" />
+
+    <!-- Tagline -->
+    <text x="0" y="130" class="tagline-text">“Look closely. Remember more.”</text>
+
+    <!-- Description -->
+    <text x="0" y="170" class="body-text">A modern, hand-drawn browser adaptation of the 1901 memory exercise.</text>
+    <text x="0" y="195" class="body-text">10 difficulty levels • Active retrieval training • Zero backend.</text>
+
+    <!-- Badges Row -->
+    <g transform="translate(0, 230)">
+      <rect x="0" y="0" width="110" height="38" rx="10" fill="#FFE28A" stroke="#252525" stroke-width="2" />
+      <text x="14" y="24" class="badge-text">10 LEVELS</text>
+
+      <rect x="122" y="0" width="155" height="38" rx="10" fill="#A9DCC3" stroke="#252525" stroke-width="2" />
+      <text x="136" y="24" class="badge-text">REACT 19 + VITE</text>
+
+      <rect x="289" y="0" width="165" height="38" rx="10" fill="#C8B8F0" stroke="#252525" stroke-width="2" />
+      <text x="303" y="24" class="badge-text">100% CLIENT-SIDE</text>
+    </g>
+  </g>
+
+  <!-- Right Column: Visual Notebook Cards Demonstration -->
+  <g transform="translate(560, 50)">
+    <!-- Paper Sheet Container -->
+    <rect width="380" height="310" rx="18" fill="#FFFFFF" stroke="#252525" stroke-width="2.5" />
+    <!-- Offset shadow -->
+    <line x1="12" y1="310" x2="388" y2="310" stroke="#252525" stroke-width="6" stroke-linecap="round" />
+    <line x1="380" y1="12" x2="380" y2="316" stroke="#252525" stroke-width="6" stroke-linecap="round" />
+
+    <!-- Tape on top -->
+    <rect x="135" y="-12" width="110" height="26" rx="3" fill="#FFE28A" opacity="0.85" stroke="#252525" stroke-width="1.5" stroke-dasharray="3 3" transform="rotate(-2 190 0)" />
+
+    <!-- Demonstration Header -->
+    <text x="25" y="42" class="badge-text" letter-spacing="1">VISUAL CHALLENGE PREVIEW</text>
+    <rect x="270" y="25" width="85" height="26" rx="13" fill="#77BCE8" stroke="#252525" stroke-width="1.5" />
+    <text x="285" y="42" class="badge-text">RECALL</text>
+
+    <!-- 4 Illustrated Flashcards Grid -->
+    <!-- Card 1: Lantern -->
+    <g transform="translate(25, 65)">
+      <rect width="155" height="95" rx="12" fill="#FFFDF8" stroke="#252525" stroke-width="2" />
+      <rect width="155" height="6" rx="3" fill="#FFE28A" />
+      <text x="12" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="11px" font-weight="800" fill="#8c887e">#01</text>
+      <text x="12" y="65" class="card-word">Lantern</text>
+      <circle cx="138" cy="26" r="4" fill="#FFE28A" stroke="#252525" stroke-width="1" />
+    </g>
+
+    <!-- Card 2: Compass -->
+    <g transform="translate(200, 65)">
+      <rect width="155" height="95" rx="12" fill="#FFFDF8" stroke="#252525" stroke-width="2" />
+      <rect width="155" height="6" rx="3" fill="#77BCE8" />
+      <text x="12" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="11px" font-weight="800" fill="#8c887e">#02</text>
+      <text x="12" y="65" class="card-word">Compass</text>
+      <circle cx="138" cy="26" r="4" fill="#77BCE8" stroke="#252525" stroke-width="1" />
+    </g>
+
+    <!-- Card 3: Vanished Feather (Dashed) -->
+    <g transform="translate(25, 175)">
+      <rect width="155" height="95" rx="12" fill="#FBF9F2" stroke="#8c887e" stroke-width="2" stroke-dasharray="4 4" />
+      <text x="12" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="11px" font-weight="800" fill="#a09d94">#03</text>
+      <text x="65" y="55" font-size="22px">💨</text>
+      <text x="35" y="78" class="vanished-text">Feather vanished!</text>
+    </g>
+
+    <!-- Card 4: Key -->
+    <g transform="translate(200, 175)">
+      <rect width="155" height="95" rx="12" fill="#FFFDF8" stroke="#252525" stroke-width="2" />
+      <rect width="155" height="6" rx="3" fill="#A9DCC3" />
+      <text x="12" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="11px" font-weight="800" fill="#8c887e">#04</text>
+      <text x="12" y="65" class="card-word">Key</text>
+      <circle cx="138" cy="26" r="4" fill="#A9DCC3" stroke="#252525" stroke-width="1" />
+    </g>
+
+    <!-- Success Chip -->
+    <g transform="translate(85, 278)">
+      <rect width="210" height="26" rx="13" fill="#FFE28A" stroke="#252525" stroke-width="1.5" />
+      <text x="18" y="17" class="badge-text">✓ SPOT WHAT DISAPPEARED</text>
+    </g>
+  </g>
+</svg>

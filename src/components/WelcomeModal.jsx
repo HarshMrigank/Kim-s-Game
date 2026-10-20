@@ -1,6 +1,22 @@
+import { markInstructionsSeen } from "../utils/storage";
+
 export default function WelcomeModal({ isOpen, onClose, onStart }) {
   if (!isOpen) {
     return null;
+  }
+
+  function handleDismiss() {
+    markInstructionsSeen();
+    if (onStart) {
+      onStart();
+    } else {
+      onClose();
+    }
+  }
+
+  function handleCloseOnly() {
+    markInstructionsSeen();
+    onClose();
   }
 
   return (
@@ -8,12 +24,13 @@ export default function WelcomeModal({ isOpen, onClose, onStart }) {
       className="modal-backdrop"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) {
-          onClose();
+          handleCloseOnly();
         }
       }}
+      role="presentation"
     >
       <section
-        className="welcome-modal"
+        className="welcome-modal notebook-modal"
         role="dialog"
         aria-modal="true"
         aria-labelledby="welcome-title"
@@ -22,55 +39,87 @@ export default function WelcomeModal({ isOpen, onClose, onStart }) {
           className="modal-close"
           type="button"
           aria-label="Close instructions"
-          onClick={onClose}
+          onClick={handleCloseOnly}
         >
-          ×
+          ✕
         </button>
 
-        <span className="eyebrow">PREPARE YOUR BRAIN CELLS</span>
+        <div className="modal-header-tape" aria-hidden="true"></div>
 
-        <h2 id="welcome-title">Welcome to Kim's Game</h2>
+        <span className="eyebrow">THE NOTEBOOK BRIEFING</span>
 
-        <p className="muted">
-          Prove your memory isn't as fried as you think. Stare at the words, 
-          catch what vanishes into thin air, and try not to panic when the timer hits zero.
+        <h2 id="welcome-title">Welcome to Kim’s Game</h2>
+
+        <p className="welcome-desc">
+          Inspired by Rudyard Kipling’s 1901 novel <em>Kim</em> and Robert Baden-Powell’s
+          famous scout training, this classic exercise tests how quickly you can observe,
+          retain, and recall details under pressure.
         </p>
 
-        {/* Enhanced Visual Demo section */}
-        <div className="demo-box">
-          <p className="demo-caption">How it works:</p>
-          <div className="demo-cards" aria-label="Example word cards">
-            <span className="demo-tag">Apple</span>
-            <span className="demo-tag">River</span>
-            <span className="demo-tag demo-missing" title="This one vanished!">Guitar 💨</span>
-            <span className="demo-tag">Mountain</span>
+        {/* Visual demo illustration */}
+        <div className="demo-box notebook-paper-box">
+          <div className="demo-box-header">
+            <span className="demo-caption">Visual Walkthrough:</span>
+            <span className="demo-step-badge">Try noticing what vanishes</span>
+          </div>
+
+          <div className="demo-cards" aria-label="Example flashcards showing one item disappearing">
+            <div className="demo-card demo-card-1">
+              <span className="demo-num">01</span>
+              <strong>Lantern</strong>
+            </div>
+            <div className="demo-card demo-card-2">
+              <span className="demo-num">02</span>
+              <strong>Compass</strong>
+            </div>
+            <div className="demo-card demo-card-missing" title="This item vanished!">
+              <span className="demo-num">03</span>
+              <strong className="vanished-word">Feather</strong>
+              <span className="vanish-badge">💨 Vanished!</span>
+            </div>
+            <div className="demo-card demo-card-4">
+              <span className="demo-num">04</span>
+              <strong>Key</strong>
+            </div>
           </div>
         </div>
 
+        {/* 3 Steps */}
         <div className="instruction-steps">
-          <div>
-            <span>01</span>
-            <p><strong>Memorize:</strong> Stare down the words before the shrinking clock runs out.</p>
+          <div className="step-item">
+            <span className="step-num">1</span>
+            <div>
+              <strong>Study & Memorise:</strong>
+              <p>Flashcards appear on the table for a few seconds. Absorb as many words as you can.</p>
+            </div>
           </div>
 
-          <div>
-            <span>02</span>
-            <p><strong>Hunt:</strong> Pick out the exact words that magically disappeared from the screen.</p>
+          <div className="step-item">
+            <span className="step-num">2</span>
+            <div>
+              <strong>Spot What Disappeared:</strong>
+              <p>A few words are quietly whisked away. Compare the empty spaces against your memory.</p>
+            </div>
           </div>
 
-          <div>
-            <span>03</span>
-            <p><strong>Survive:</strong> Earn 10 points per correct pick and unlock even more insulting levels.</p>
+          <div className="step-item">
+            <span className="step-num">3</span>
+            <div>
+              <strong>Select & Score:</strong>
+              <p>Choose the missing items from the options list before the answer timer runs out. Earn 10 points per correct word.</p>
+            </div>
           </div>
         </div>
 
-        <button
-          className="button button-primary button-full"
-          type="button"
-          onClick={onStart}
-        >
-          I'm ready to be humbled →
-        </button>
+        <div className="modal-actions">
+          <button
+            className="button button-primary button-full"
+            type="button"
+            onClick={handleDismiss}
+          >
+            Let’s Play! →
+          </button>
+        </div>
       </section>
     </div>
   );

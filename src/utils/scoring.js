@@ -1,23 +1,12 @@
-
-export function evaluateAnswers(selectedAnswers, missingWords) {
+export function evaluateAnswers(selectedAnswers = [], missingWords = []) {
   const correctSet = new Set(missingWords);
   const selectedSet = new Set(selectedAnswers);
 
-  const correctAnswers = [...selectedSet].filter(
-    (word) => correctSet.has(word)
-  );
-
-  const incorrectAnswers = [...selectedSet].filter(
-    (word) => !correctSet.has(word)
-  );
-
-  const unansweredCount = Math.max(
-    0,
-    missingWords.length - selectedSet.size
-  );
+  const correctAnswers = [...selectedSet].filter((word) => correctSet.has(word));
+  const incorrectAnswers = [...selectedSet].filter((word) => !correctSet.has(word));
+  const missedWords = missingWords.filter((word) => !selectedSet.has(word));
 
   const totalAnswers = missingWords.length;
-
   const score = correctAnswers.length * 10;
 
   const accuracy =
@@ -30,7 +19,8 @@ export function evaluateAnswers(selectedAnswers, missingWords) {
     accuracy,
     correctAnswers,
     incorrectAnswers,
-    unansweredCount,
+    missedWords,
+    unansweredCount: missedWords.length,
     totalAnswers,
   };
 }
